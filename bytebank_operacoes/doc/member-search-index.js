@@ -1,1 +1,0 @@
-memberSearchIndex = [{"p":"br.com.bytebank_operacoes.conta","c":"ContaPoupanca","l":"ContaPoupanca(int)","u":"%3Cinit%3E(int)"},{"p":"br.com.bytebank_operacoes.conta","c":"ContaPoupanca","l":"getTipo()"},{"p":"br.com.bytebank_operacoes.conta","c":"ContaPoupanca","l":"saque(double)"}];updateSearchResults();
