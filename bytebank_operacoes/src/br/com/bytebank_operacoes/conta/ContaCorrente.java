@@ -11,9 +11,10 @@ public class ContaCorrente extends Conta {
 		super(agencia);
 	}
 	
-	@Override
-	public String toString() {
-		return "Conta Corrente";
-	}
+//	@Override
+//	public String toString() {
+//		this.mostraDados();
+//		return "";
+//	}
 }
 

@@ -10,11 +10,14 @@ public class TesteArray {
 		int tam = 3, i = tam, j=tam;
 		int idades[][] = new int[i][j];
 
-//		for(i=0; i<tam; i++) {
-//			for(j=0; j<tam; j++) {
-//				System.out.println("i: " + i+1 + " j: " + j+1);	
-//			}
-//		}
+		for(i=0; i<tam; i++) {
+			for(j=0; j<tam; j++) {
+				System.out.print("[" + (i+1) + "] ");
+				if(j==(tam-1)) {
+					System.out.println();
+				}
+			}
+		}
 		
 //		Object referencias[] = new Object[tam];
 //		ContaCorrente cc = new ContaCorrente(i);

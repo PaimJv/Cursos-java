@@ -17,9 +17,10 @@ public class ContaPoupanca extends Conta {
 		super.saque(valor + taxa);
 	}
 	
-	@Override
-	public String toString() {
-		return "Conta Poupança";
-	}
+//	@Override
+//	public String toString() {
+//		this.mostraDados();
+//		return "";
+//	}
 }
 

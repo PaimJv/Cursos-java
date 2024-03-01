@@ -3,11 +3,11 @@ package br.com.bytebank_operacoes.conta;
 import br.com.bytebank_operacoes.conexao.ErroException;
 import br.com.bytebank_operacoes.conta.cliente.Cliente;
 
-public abstract class Conta {
+public abstract class Conta extends Object implements Comparable<Conta> {
 	private double saldo;
 	private int agencia;
 	private int numero;
-	private static int contagem;
+	private static int contagem=1;
 	private Cliente titular;
 	private String complemento;
 	private boolean valida;
@@ -29,6 +29,7 @@ public abstract class Conta {
 			setAgencia(agencia);	
 			valida = true;
 		}
+		setNumero(contagem++);
 	}
 	
 	public void novoCliente(String nome, String cpf) {
@@ -42,7 +43,7 @@ public abstract class Conta {
 			return;
 		} else {
 			System.out.println("--- " + this.getNome() + " ---");
-			System.out.println(this.toString());
+			System.out.println(this.getTipo());
 			System.out.println("CPF: " + this.getCpf());
 			if(this.getNumero() == 0) {
 				contagem++;
@@ -66,6 +67,8 @@ public abstract class Conta {
 	}
 	
 	public void setNome (String nome) {
+		nome = nome.toLowerCase(); //todas as letras minúsculas
+		nome = nome.toUpperCase().charAt(0) + nome.substring(1); //primeira letra maiuscula;
 		this.titular.setNome(nome);
 	}
 		public String getNome() {
@@ -138,5 +141,25 @@ public abstract class Conta {
 			System.out.println("Saldo da conta: R$ " + this.saldo);
 		}		
 	}
-}
 
+	@Override
+	public boolean equals(Object ref) {
+		Conta outra = (Conta) ref;
+		
+		if(this.agencia != outra.agencia | this.numero != outra.numero) {
+			return false;
+		}
+		return true;
+	}
+	
+	@Override
+	public int compareTo(Conta o) { //ordem natural de organização: com base na agencia
+		return Integer.compare(this.getAgencia(), o.getAgencia());	
+	}
+
+	@Override
+	public String toString() {
+		this.mostraDados();
+		return "";
+	}
+}
